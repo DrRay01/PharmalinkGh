@@ -26,7 +26,7 @@ import {
   where,
   writeBatch
 } from 'firebase/firestore';
-import firebaseConfig from '../../firebase-applet-config.json';
+import firebaseConfig from '../../firebase-config.json';
 import { 
   User, 
   Pharmacy, 

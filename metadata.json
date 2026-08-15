@@ -1,6 +1,0 @@
-{
-  "name": "PharmaLink GH",
-  "description": "Emergency Out-of-Stock Medication Locator & 2-Hour Reservation Network for Ghanaian community pharmacies.",
-  "requestFramePermissions": ["geolocation"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

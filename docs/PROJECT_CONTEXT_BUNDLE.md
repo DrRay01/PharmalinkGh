@@ -58,7 +58,7 @@ src/
     AdminDashboard.tsx
     icons/WhatsAppIcon.tsx
 firestore.rules             — Firestore security rules
-firebase-applet-config.json  — Firebase web app config (project: gifted-shape-d9v0l)
+firebase-config.json  — Firebase web app config (project: gifted-shape-d9v0l)
 ```
 
 ### Data flow pattern

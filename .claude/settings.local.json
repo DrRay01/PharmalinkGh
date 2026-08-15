@@ -31,7 +31,12 @@
       "Read(//Users/raymondattah/**)",
       "Bash(node drive9.mjs)",
       "Bash(grep -iE \"^docs$|readme\")",
-      "Bash(node drive10.mjs)"
+      "Bash(node drive10.mjs)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const c=fs.readFileSync\\('vite.config.ts','utf8'\\); const lines=c.split\\('\\\\n'\\); lines.forEach\\(\\(l,i\\)=>{ if\\(i>=13&&i<=19\\) console.log\\(i+1, JSON.stringify\\(l\\)\\); }\\);\")",
+      "Bash(node -e ' *)",
+      "Bash(git mv *)",
+      "Bash(mv firebase-applet-config.json firebase-config.json)",
+      "Bash(node drive11.mjs)"
     ]
   }
 }
