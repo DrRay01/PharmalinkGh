@@ -1,0 +1,156 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile with role-based access for Patient, Pharmacist, or Admin",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique Firebase Auth user identifier" },
+        "name": { "type": "string", "description": "Full name of the user" },
+        "email": { "type": "string", "description": "User email address" },
+        "role": { "type": "string", "enum": ["patient", "pharmacist", "admin"], "description": "User portal role" },
+        "pharmacyId": { "type": "string", "description": "Associated pharmacy ID if role is pharmacist" },
+        "avatar": { "type": "string", "description": "Profile picture URL" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of registration" }
+      },
+      "required": ["uid", "name", "email", "role"]
+    },
+    "medicines": {
+      "title": "Medicine",
+      "description": "Ghana FDA verified catalog item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "brandName": { "type": "string" },
+        "genericName": { "type": "string" },
+        "category": { "type": "string" },
+        "therapeuticClass": { "type": "string" },
+        "dosageForm": { "type": "string" },
+        "strength": { "type": "string" },
+        "description": { "type": "string" },
+        "prescriptionRequired": { "type": "boolean" },
+        "ghanaFdaRegNo": { "type": "string" },
+        "isEmergencyCritical": { "type": "boolean" },
+        "commonIndications": { "type": "array", "items": { "type": "string" } },
+        "image": { "type": "string" }
+      },
+      "required": ["id", "brandName", "genericName", "category", "ghanaFdaRegNo"]
+    },
+    "pharmacies": {
+      "title": "Pharmacy",
+      "description": "Accredited dispensary in Ghana",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "licenseNumber": { "type": "string" },
+        "superintendentName": { "type": "string" },
+        "superintendentPin": { "type": "string" },
+        "address": { "type": "string" },
+        "locality": { "type": "string" },
+        "region": { "type": "string" },
+        "phone": { "type": "string" },
+        "emergencyPhone": { "type": "string" },
+        "openingHours": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        },
+        "acceptsInsurance": { "type": "boolean" }
+      },
+      "required": ["id", "name", "licenseNumber", "locality", "region", "phone"]
+    },
+    "inventory": {
+      "title": "InventoryItem",
+      "description": "Stock and price level of a medicine at a specific pharmacy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "pharmacyId": { "type": "string" },
+        "medicineId": { "type": "string" },
+        "status": { "type": "string", "enum": ["IN_STOCK", "LOW_STOCK", "OUT_OF_STOCK"] },
+        "quantity": { "type": "number" },
+        "unitPriceGHS": { "type": "number" },
+        "batchNumber": { "type": "string" },
+        "expiryDate": { "type": "string" },
+        "lastUpdatedAt": { "type": "string" }
+      },
+      "required": ["id", "pharmacyId", "medicineId", "status", "quantity", "unitPriceGHS"]
+    },
+    "reservations": {
+      "title": "Reservation",
+      "description": "2-hour patient medication hold at a community pharmacy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "reservationCode": { "type": "string" },
+        "medicineId": { "type": "string" },
+        "medicineName": { "type": "string" },
+        "pharmacyId": { "type": "string" },
+        "pharmacyName": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientPhone": { "type": "string" },
+        "patientUid": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unitPriceGHS": { "type": "number" },
+        "totalPriceGHS": { "type": "number" },
+        "status": { "type": "string", "enum": ["PENDING", "CONFIRMED", "DISPENSED", "EXPIRED", "CANCELLED"] },
+        "prescriptionImageUrl": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "expiresAt": { "type": "string" }
+      },
+      "required": ["id", "reservationCode", "medicineId", "pharmacyId", "patientName", "patientPhone", "status", "expiresAt"]
+    },
+    "auditLogs": {
+      "title": "AuditLog",
+      "description": "Compliance and action logs for PCG and dispensers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "actor": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "category": { "type": "string", "enum": ["STOCK_UPDATE", "HOLD_CREATED", "DISPENSATION", "ACCREDITATION", "CRITICAL_ALERT"] },
+        "relatedId": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "actor", "action", "details", "category"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "$userId": {
+        "data": "users"
+      }
+    },
+    "medicines": {
+      "$medicineId": {
+        "data": "medicines"
+      }
+    },
+    "pharmacies": {
+      "$pharmacyId": {
+        "data": "pharmacies"
+      }
+    },
+    "inventory": {
+      "$itemId": {
+        "data": "inventory"
+      }
+    },
+    "reservations": {
+      "$reservationId": {
+        "data": "reservations"
+      }
+    },
+    "auditLogs": {
+      "$logId": {
+        "data": "auditLogs"
+      }
+    }
+  }
+}

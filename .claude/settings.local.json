@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"require\\('chrome-remote-interface'\\)\")",
+      "Bash(curl -s -o /dev/null -w \"favicon-32: %{http_code}\\\\n\" http://localhost:3000/favicon-32.png)",
+      "Bash(curl -s -o /dev/null -w \"favicon-512: %{http_code}\\\\n\" http://localhost:3000/favicon-512.png)",
+      "Bash(curl -s -o /dev/null -w \"apple-touch-icon: %{http_code}\\\\n\" http://localhost:3000/apple-touch-icon.png)",
+      "Bash(lsof -ti:3000 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(rm -rf /private/tmp/pw-check)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(nohup npm run dev)",
+      "Bash(disown)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000 >/dev/null; do sleep 1; done')",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(node drive.mjs)",
+      "Bash(node drive2.mjs)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(npm run *)",
+      "Bash(node drive3.mjs)",
+      "Bash(npx tsc *)",
+      "Bash(node drive4.mjs)",
+      "Bash(node /private/tmp/claude-501/-Users-raymondattah-Desktop-MSc-COMPUTER-SCIENCE-Software-Engineering-22424687-Raymond-pharmalinkgh/8ac700c8-90b6-4f5a-ae99-7b6c1cb3810c/scratchpad/cleanup.mjs)",
+      "Bash(node _cleanup_test_data.mjs)",
+      "Bash(node drive6.mjs)",
+      "Bash(node drive8.mjs)",
+      "Bash(npx firebase *)",
+      "Bash(env)",
+      "Read(//Users/raymondattah/.config/**)",
+      "Read(//Users/raymondattah/**)",
+      "Bash(node drive9.mjs)",
+      "Bash(grep -iE \"^docs$|readme\")",
+      "Bash(node drive10.mjs)"
+    ]
+  }
+}

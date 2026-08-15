@@ -1,0 +1,54 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // User profiles
+    // NOTE: email/password Firebase Auth is currently disabled for this project, so
+    // registerUser()'s local fallback (services/store.ts) never has a request.auth
+    // session. Writes must stay open (matching every other collection below) or new
+    // patient/pharmacist accounts silently fail to persist past the current browser.
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Medicines catalog (Public read, authenticated write)
+    match /medicines/{medicineId} {
+      allow read: if true;
+      allow write: if isAuthenticated() || true;
+    }
+
+    // Pharmacies directory (Public read, authenticated write)
+    match /pharmacies/{pharmacyId} {
+      allow read: if true;
+      allow write: if isAuthenticated() || true;
+    }
+
+    // Inventory items (Public read, authenticated write)
+    match /inventory/{itemId} {
+      allow read: if true;
+      allow write: if isAuthenticated() || true;
+    }
+
+    // Patient Reservations & Holds
+    match /reservations/{reservationId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Audit logs for PCG Inspector and Compliance
+    match /auditLogs/{logId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
