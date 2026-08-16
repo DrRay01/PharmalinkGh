@@ -36,7 +36,20 @@
       "Bash(node -e ' *)",
       "Bash(git mv *)",
       "Bash(mv firebase-applet-config.json firebase-config.json)",
-      "Bash(node drive11.mjs)"
+      "Bash(node drive11.mjs)",
+      "Bash(git check-ignore *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://pharmalink-gh.vercel.app/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://pharmalink-gh.vercel.app/admin)",
+      "Bash(node live-register.mjs)",
+      "Bash(node /private/tmp/claude-501/-Users-raymondattah-Desktop-MSc-COMPUTER-SCIENCE-Software-Engineering-22424687-Raymond-pharmalinkgh/8ac700c8-90b6-4f5a-ae99-7b6c1cb3810c/scratchpad/check-rules-deployed.mjs)",
+      "Bash(cp /private/tmp/claude-501/-Users-raymondattah-Desktop-MSc-COMPUTER-SCIENCE-Software-Engineering-22424687-Raymond-pharmalinkgh/8ac700c8-90b6-4f5a-ae99-7b6c1cb3810c/scratchpad/check-rules-deployed.mjs \"/Users/raymondattah/Desktop/MSc COMPUTER SCIENCE/Software Engineering/22424687_Raymond/pharmalinkgh/_probe.mjs\")",
+      "Bash(sed -i '' \"s|import firebaseConfig from '/Users.*firebase-config.json' with { type: 'json' };|import firebaseConfig from './firebase-config.json' with { type: 'json' };|\" \"/Users/raymondattah/Desktop/MSc COMPUTER SCIENCE/Software Engineering/22424687_Raymond/pharmalinkgh/_probe.mjs\")",
+      "Bash(node _probe.mjs)",
+      "Bash(rm -f _probe.mjs)",
+      "Bash(node verify-fix.mjs)",
+      "Bash(node new-project-test.mjs)",
+      "Bash(node new-project-pharmacist-retest.mjs)",
+      "Bash(node finish-pharmacist-signin.mjs)"
     ]
   }
 }

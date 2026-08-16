@@ -10,19 +10,20 @@ import {
   onAuthStateChanged,
   User as FirebaseUser
 } from 'firebase/auth';
-import { 
-  getFirestore, 
-  collection, 
-  doc, 
-  getDoc, 
-  getDocs, 
-  setDoc, 
-  updateDoc, 
-  deleteDoc, 
-  onSnapshot, 
-  query, 
-  orderBy, 
-  limit, 
+import {
+  getFirestore,
+  initializeFirestore,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  updateDoc,
+  deleteDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  limit,
   where,
   writeBatch
 } from 'firebase/firestore';
@@ -50,10 +51,25 @@ const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 // Initialize Firebase Auth
 export const auth = getAuth(app);
 
-// Initialize Firestore with custom database ID from config if present
-export const db = firebaseConfig.firestoreDatabaseId 
-  ? getFirestore(app, firebaseConfig.firestoreDatabaseId)
-  : getFirestore(app);
+// Initialize Firestore with custom database ID from config if present.
+// ignoreUndefinedProperties is essential here: every optional field on our domain
+// types (Pharmacy.image, Pharmacy.emergencyPhone, Reservation.notes, etc.) ends up
+// `undefined` rather than omitted when unset, and Firestore's setDoc() otherwise
+// throws a hard client-side error for any `undefined` field value — which silently
+// aborted the write (caught and only console.warn'd by call sites) before this fix.
+export const db = (() => {
+  const settings = { ignoreUndefinedProperties: true };
+  try {
+    return firebaseConfig.firestoreDatabaseId
+      ? initializeFirestore(app, settings, firebaseConfig.firestoreDatabaseId)
+      : initializeFirestore(app, settings);
+  } catch {
+    // Already initialized (e.g. a dev-server HMR re-run of this module) — reuse it.
+    return firebaseConfig.firestoreDatabaseId
+      ? getFirestore(app, firebaseConfig.firestoreDatabaseId)
+      : getFirestore(app);
+  }
+})();
 
 // Google Auth Provider
 const googleProvider = new GoogleAuthProvider();

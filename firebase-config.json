@@ -1,12 +1,10 @@
 {
-  "projectId": "gifted-shape-d9v0l",
-  "appId": "1:573475154101:web:18335008cf6d12c4a076fc",
-  "apiKey": "AIzaSyBcpQSCk80XfrqpE7QDOdE9uycWjFIk5zs",
-  "authDomain": "gifted-shape-d9v0l.firebaseapp.com",
-  "firestoreDatabaseId": "ai-studio-pharmalinkgh-ca612136-f36f-4742-bbb9-8f1925edf0ca",
-  "storageBucket": "gifted-shape-d9v0l.firebasestorage.app",
-  "messagingSenderId": "573475154101",
-  "measurementId": "",
-  "oAuthClientId": "573475154101-q5g9s03jr1jgo1fmjot4t19ihapbb9rf.apps.googleusercontent.com",
-  "recaptchaSiteKey": ""
+  "projectId": "pharmalinkgh-eba7b",
+  "appId": "1:201063463953:web:f1f1e9c6fb8aa406b905b0",
+  "apiKey": "AIzaSyBMl5dS0MDjtaoGazhpmMh3f197xx7meAM",
+  "authDomain": "pharmalinkgh-eba7b.firebaseapp.com",
+  "firestoreDatabaseId": "",
+  "storageBucket": "pharmalinkgh-eba7b.firebasestorage.app",
+  "messagingSenderId": "201063463953",
+  "measurementId": "G-F89VVDDH7J"
 }
