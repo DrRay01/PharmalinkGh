@@ -10,7 +10,10 @@ import { LogoutConfirmModal } from './components/LogoutConfirmModal';
 import { ToastContainer } from './components/ToastContainer';
 import { WelcomeGateway } from './components/WelcomeGateway';
 import { AdminGateway } from './components/AdminGateway';
-import { ShieldCheck, HeartHandshake, PhoneCall, Building2, ExternalLink, Activity } from 'lucide-react';
+import { HelpGuideModal } from './components/HelpGuideModal';
+import { ShieldCheck, HeartHandshake, PhoneCall, Building2, ExternalLink, Activity, HelpCircle } from 'lucide-react';
+
+const TUTORIAL_SEEN_KEY = 'plgh_tutorial_seen_v1';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<User>(() => store.getCurrentUser());
@@ -29,6 +32,9 @@ export default function App() {
 
   // Logout confirm modal state
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
+  // Help / quick-tutorial guide modal state
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   // Whether the visitor has deliberately entered the app (signed in, or skipped the welcome gateway as a guest)
   const [hasEnteredApp, setHasEnteredApp] = useState(() => {
@@ -115,6 +121,19 @@ export default function App() {
   const isGuest = !currentUser.email || currentUser.uid === 'guest-user';
   const showWelcomeGateway = isGuest && !hasEnteredApp;
 
+  // Auto-open the quick guide the first time anyone lands in the app in this browser.
+  // It stays reachable afterwards via the floating help button.
+  useEffect(() => {
+    if (showWelcomeGateway || isAdminRoute) return;
+    if (localStorage.getItem(TUTORIAL_SEEN_KEY)) return;
+    localStorage.setItem(TUTORIAL_SEEN_KEY, '1');
+    setIsHelpOpen(true);
+  }, [showWelcomeGateway, isAdminRoute]);
+
+  const helpGuideRole = currentUser.role === 'pharmacist' || currentUser.role === 'admin'
+    ? currentUser.role
+    : isGuest ? 'guest' : 'patient';
+
   const handleNavTabChange = (tab: any) => {
     if (tab === 'patient-search') {
       setActiveTab('patient-search');
@@ -138,6 +157,7 @@ export default function App() {
           onOpenAuth={(mode, role) => openAuth(mode, role)}
           onContinueAsGuest={() => setHasEnteredApp(true)}
           onGoToAdmin={() => navigate('/admin')}
+          onOpenHelp={() => setIsHelpOpen(true)}
         />
       ) : (
         <>
@@ -211,6 +231,16 @@ export default function App() {
               </div>
             </div>
           </footer>
+
+          {/* 4b. Floating quick-guide trigger */}
+          <button
+            id="open-help-guide-btn"
+            onClick={() => setIsHelpOpen(true)}
+            className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold shadow-lg transition-colors"
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span className="hidden sm:inline">Quick Guide</span>
+          </button>
         </>
       )}
 
@@ -228,6 +258,14 @@ export default function App() {
         onClose={() => setIsLogoutModalOpen(false)}
         currentUser={currentUser}
         reservations={reservations}
+      />
+
+      {/* 6b. Quick Guide / Tutorial Modal */}
+      <HelpGuideModal
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
+        role={helpGuideRole}
+        userName={!isGuest ? currentUser.name : undefined}
       />
 
       {/* 7. Toast Notifications */}

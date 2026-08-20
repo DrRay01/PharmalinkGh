@@ -12,6 +12,7 @@ import {
   Pill,
   Building2,
   Clock3,
+  HelpCircle,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import pharmalinkMonogram from '../assets/logos/pharmalink-logo-monogram.png';
@@ -20,6 +21,7 @@ interface WelcomeGatewayProps {
   onOpenAuth: (mode: 'login' | 'signup', role: UserRole) => void;
   onContinueAsGuest: () => void;
   onGoToAdmin: () => void;
+  onOpenHelp: () => void;
 }
 
 const ROLE_CARDS: Array<{
@@ -80,7 +82,7 @@ const LIVE_TICKER_MESSAGES = [
   'Ventolin Evohaler now in stock at American House 24/7 Chemist',
 ];
 
-export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onContinueAsGuest, onGoToAdmin }) => {
+export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onContinueAsGuest, onGoToAdmin, onOpenHelp }) => {
   const [tickerIndex, setTickerIndex] = useState(0);
 
   useEffect(() => {
@@ -265,6 +267,22 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
           >
             <span>Continue as Guest</span>
             <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* Quick guide trigger */}
+        <div className="flex justify-center mt-6">
+          <button
+            id="welcome-open-help-btn"
+            onClick={onOpenHelp}
+            className="relative inline-flex items-center gap-2.5 px-6 py-3.5 rounded-md bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-extrabold shadow-lg shadow-emerald-900/40 ring-2 ring-emerald-300/50 transition-colors"
+          >
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950/60"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950"></span>
+            </span>
+            <HelpCircle className="w-4 h-4" />
+            New here? Take the 60-second tour
           </button>
         </div>
 
