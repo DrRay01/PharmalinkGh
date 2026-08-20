@@ -94,12 +94,12 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200"
+          className="bg-white rounded-md max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200"
         >
           {/* Header */}
           <div className={`p-6 border-b ${hasHolds ? 'bg-amber-50/70 border-amber-200/80' : 'bg-slate-50 border-slate-100'} flex items-start justify-between gap-4`}>
             <div className="flex items-center gap-3">
-              <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 ${
+              <div className={`w-11 h-11 rounded-md flex items-center justify-center shrink-0 ${
                 hasHolds ? 'bg-amber-500 text-white shadow-md' : 'bg-slate-900 text-white'
               }`}>
                 {hasHolds ? <AlertTriangle className="w-6 h-6" /> : <LogOut className="w-5 h-5" />}
@@ -117,7 +117,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
             <button
               id="close-logout-modal-btn"
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-200/60 transition-colors"
+              className="p-1.5 text-slate-400 hover:text-slate-600 rounded-md hover:bg-slate-200/60 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -127,7 +127,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
           <div className="p-6 space-y-4">
             {hasHolds ? (
               <>
-                <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 space-y-1">
+                <div className="p-3.5 rounded-md bg-amber-50 border border-amber-200/80 text-xs text-amber-900 space-y-1">
                   <p className="font-bold flex items-center gap-1.5 text-amber-950">
                     <Clock className="w-4 h-4 text-amber-600" />
                     <span>You have {activeHolds.length} active 2-hour hold{activeHolds.length > 1 ? 's' : ''} in progress</span>
@@ -142,7 +142,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
                   {activeHolds.map(hold => (
                     <div
                       key={hold.id}
-                      className="p-3 rounded-2xl border border-slate-200 bg-slate-50/70 flex items-center justify-between gap-3 text-xs"
+                      className="p-3 rounded-md border border-slate-200 bg-slate-50/70 flex items-center justify-between gap-3 text-xs"
                     >
                       <div className="min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
@@ -170,7 +170,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
                 </div>
 
                 {/* Options Info */}
-                <div className="text-[11px] text-slate-500 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <div className="text-[11px] text-slate-500 bg-slate-50 p-3 rounded-md border border-slate-100">
                   <p>
                     💡 <strong>Tip:</strong> If you keep your holds, your reservation codes remain valid at the pharmacy until their 2-hour timer runs out. You can also sign back in at any time to view them.
                   </p>
@@ -181,7 +181,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
                 <p>
                   Are you sure you want to sign out? You will be switched to <strong>Guest Mode</strong> where you can still search medicines and locate pharmacies.
                 </p>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-[11px] text-slate-500">
+                <div className="p-3 bg-slate-50 rounded-md border border-slate-100 text-[11px] text-slate-500">
                   You can sign back into your account at any time using your registered email address.
                 </div>
               </div>
@@ -194,7 +194,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
               id="cancel-logout-btn"
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-100 text-xs font-bold transition-colors order-last sm:order-first"
+              className="px-5 py-2.5 rounded-md border border-slate-200 text-slate-700 hover:bg-slate-100 text-xs font-bold transition-colors order-last sm:order-first"
             >
               Stay Signed In
             </button>
@@ -205,7 +205,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
                   id="release-holds-logout-btn"
                   type="button"
                   onClick={handleCancelHoldsAndLogout}
-                  className="px-4 py-2.5 rounded-full border border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100 text-xs font-bold transition-colors flex items-center justify-center gap-1.5"
+                  className="px-4 py-2.5 rounded-md border border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100 text-xs font-bold transition-colors flex items-center justify-center gap-1.5"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>Release Holds & Sign Out</span>
@@ -215,7 +215,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
                   id="confirm-keep-holds-logout-btn"
                   type="button"
                   onClick={handleKeepHoldsAndLogout}
-                  className="px-5 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
+                  className="px-5 py-2.5 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
                 >
                   <BookmarkCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Keep Holds & Sign Out</span>
@@ -226,7 +226,7 @@ export const LogoutConfirmModal: React.FC<LogoutConfirmModalProps> = ({
                 id="confirm-logout-btn"
                 type="button"
                 onClick={handleStandardLogout}
-                className="px-6 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
+                className="px-6 py-2.5 rounded-md bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 <span>Yes, Sign Out</span>

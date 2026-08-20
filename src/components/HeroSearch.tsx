@@ -32,7 +32,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
   return (
     <section className="pt-10 pb-8 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/80 text-[11px] font-bold text-slate-700 mb-6">
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 border border-slate-200/80 text-[11px] font-bold text-slate-700 mb-6">
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
         <span>Connected to 24/7 Verified Community Pharmacies in Ghana</span>
       </div>
@@ -49,7 +49,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
 
       {/* Search Input Container - Inspired by Image 1's pill container */}
       <div className="mt-8 max-w-2xl mx-auto">
-        <div className="relative flex items-center p-1.5 rounded-full bg-white border border-slate-300 shadow-lg shadow-slate-900/5 hover:border-slate-400 focus-within:border-slate-950 focus-within:ring-4 focus-within:ring-slate-950/5 transition-all">
+        <div className="relative flex items-center p-1.5 rounded-md bg-white border border-slate-300 shadow-lg shadow-slate-900/5 hover:border-slate-400 focus-within:border-slate-950 focus-within:ring-4 focus-within:ring-slate-950/5 transition-all">
           <div className="pl-4 pr-2 text-slate-400">
             <Search className="w-5 h-5" />
           </div>
@@ -75,7 +75,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
           <button
             id="hero-search-submit"
             type="button"
-            className="shrink-0 px-6 sm:px-8 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold tracking-wide transition-colors shadow-xs flex items-center gap-2"
+            className="shrink-0 px-6 sm:px-8 py-3 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold tracking-wide transition-colors shadow-xs flex items-center gap-2"
           >
             <span>Search Now</span>
           </button>
@@ -88,7 +88,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
             <button
               key={term}
               onClick={() => setSearchQuery(term)}
-              className="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-medium transition-colors"
+              className="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-medium transition-colors"
             >
               {term}
             </button>
@@ -100,7 +100,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
       <div className="mt-8 flex items-center justify-center gap-2 flex-wrap max-w-4xl mx-auto">
         <button
           onClick={() => setSelectedCategory('ALL')}
-          className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+          className={`px-3.5 py-1.5 rounded-md text-xs font-bold transition-all ${
             selectedCategory === 'ALL'
               ? 'bg-slate-900 text-white'
               : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -113,7 +113,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all ${
               selectedCategory === cat
                 ? 'bg-slate-900 text-white shadow-xs'
                 : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -127,7 +127,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({
         <button
           id="emergency-filter-toggle"
           onClick={() => setEmergencyOnly(!emergencyOnly)}
-          className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 ${
+          className={`px-3.5 py-1.5 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 ${
             emergencyOnly
               ? 'bg-rose-600 text-white shadow-xs'
               : 'bg-rose-50 border border-rose-200 text-rose-700 hover:bg-rose-100'

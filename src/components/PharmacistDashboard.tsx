@@ -216,8 +216,8 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
     const isSuspended = pharmacy.status === 'SUSPENDED';
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-        <div className={`bg-white rounded-3xl border shadow-xs p-8 text-center ${isSuspended ? 'border-rose-200' : 'border-amber-200'}`}>
-          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 ${isSuspended ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'}`}>
+        <div className={`bg-white rounded-md border shadow-xs p-8 text-center ${isSuspended ? 'border-rose-200' : 'border-amber-200'}`}>
+          <div className={`w-14 h-14 rounded-md flex items-center justify-center mx-auto mb-4 ${isSuspended ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'}`}>
             {isSuspended ? <AlertTriangle className="w-7 h-7" /> : <Clock className="w-7 h-7" />}
           </div>
           <h1 className="text-xl font-bold text-slate-900 font-display mb-1">
@@ -228,7 +228,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
               ? 'Your pharmacy license has been suspended by the Pharmacy Council of Ghana and sales are revoked. Contact PCG support to resolve this before you can dispense again.'
               : `Thanks for registering, ${currentUser.name}. ${pharmacy.name} has been submitted to the Pharmacy Council of Ghana for accreditation review. You'll be able to manage inventory and patient holds as soon as a PCG Inspector approves your license.`}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-xs bg-slate-50 rounded-2xl p-4 border border-slate-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-xs bg-slate-50 rounded-md p-4 border border-slate-100">
             <div>
               <span className="text-slate-400 font-bold uppercase tracking-wider block mb-0.5">Pharmacy</span>
               <span className="font-semibold text-slate-800">{pharmacy.name}</span>
@@ -254,7 +254,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* 1. Hero SaaS Banner - Inspired directly by Image 2 */}
-      <div className="relative rounded-3xl bg-linear-to-r from-blue-700 via-indigo-700 to-blue-800 text-white p-6 sm:p-8 shadow-xl shadow-blue-900/15 overflow-hidden">
+      <div className="relative rounded-md bg-blue-800 text-white p-6 sm:p-8 shadow-xl shadow-blue-900/15 overflow-hidden">
         {/* Decorative background glow */}
         <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-0 right-1/4 w-32 h-32 bg-sky-400/20 rounded-full blur-2xl pointer-events-none" />
@@ -262,7 +262,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
         <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[11px] font-bold tracking-wide">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/20 backdrop-blur-md text-white text-[11px] font-bold tracking-wide">
                 <Store className="w-3.5 h-3.5" />
                 {pharmacy.name}
               </span>
@@ -284,7 +284,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
             <button
               id="pharmacist-add-stock-btn"
               onClick={() => setIsAddModalOpen(true)}
-              className="px-4 py-2.5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 text-xs font-bold transition-all shadow-md flex items-center gap-2"
+              className="px-4 py-2.5 rounded-md bg-white text-blue-900 hover:bg-blue-50 text-xs font-bold transition-all shadow-md flex items-center gap-2"
             >
               <Plus className="w-4 h-4" />
               <span>Stock New Drug</span>
@@ -292,7 +292,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
 
             <button
               onClick={() => setActiveTab(activeTab === 'queue' ? 'inventory' : 'queue')}
-              className="px-4 py-2.5 rounded-2xl bg-white/15 hover:bg-white/25 text-white backdrop-blur-md text-xs font-bold transition-all flex items-center gap-2"
+              className="px-4 py-2.5 rounded-md bg-white/15 hover:bg-white/25 text-white backdrop-blur-md text-xs font-bold transition-all flex items-center gap-2"
             >
               <Sliders className="w-4 h-4" />
               <span>{activeTab === 'queue' ? 'Inventory Manager' : 'Reservations Queue'}</span>
@@ -304,58 +304,58 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
       {/* 2. Micro-KPI Metrics Grid - Inspired by Image 2 */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Active Holds */}
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Active Holds</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md bg-amber-50 text-amber-600 flex items-center justify-center">
               <Clock className="w-4 h-4" />
             </div>
           </div>
           <div className="flex items-baseline justify-between">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{activeHoldsCount}</span>
-            <span className="text-[11px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">
               2-hr Locks
             </span>
           </div>
         </div>
 
         {/* Fulfilled Today */}
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Dispensed Today</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center">
               <CheckCircle2 className="w-4 h-4" />
             </div>
           </div>
           <div className="flex items-baseline justify-between">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{fulfilledTodayCount}</span>
-            <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">
               +{fulfilledTodayCount} / today
             </span>
           </div>
         </div>
 
         {/* Low Stock Alerts */}
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Low Stock Items</span>
-            <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md bg-rose-50 text-rose-600 flex items-center justify-center">
               <AlertTriangle className="w-4 h-4" />
             </div>
           </div>
           <div className="flex items-baseline justify-between">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{lowStockCount}</span>
-            <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">
               Attention needed
             </span>
           </div>
         </div>
 
         {/* Fulfilled Value */}
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Dispensary Value</span>
-            <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md bg-sky-50 text-sky-600 flex items-center justify-center">
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
@@ -367,14 +367,14 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
       </div>
 
       {/* 3. Main Operational Sections (Tabs) */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div className="bg-white rounded-md border border-slate-200/80 shadow-xs overflow-hidden">
         {/* Navigation Tabs */}
         <div className="px-6 pt-5 pb-3 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <button
               id="pharmacist-tab-queue"
               onClick={() => setActiveTab('queue')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'queue'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -386,7 +386,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
             <button
               id="pharmacist-tab-inventory"
               onClick={() => setActiveTab('inventory')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'inventory'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -402,7 +402,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                 <button
                   key={f}
                   onClick={() => setStatusFilter(f)}
-                  className={`px-3 py-1 rounded-full text-[11px] font-semibold transition-all ${
+                  className={`px-3 py-1 rounded-md text-[11px] font-semibold transition-all ${
                     statusFilter === f
                       ? 'bg-slate-900 text-white'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -444,10 +444,10 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                     : 'border-l-4 border-l-slate-200 hover:bg-slate-50/60';
 
                   return (
-                    <div key={res.id} className={`py-4.5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-3 pl-4 rounded-2xl transition-colors ${rowAccent}`}>
+                    <div key={res.id} className={`py-4.5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-3 pl-4 rounded-md transition-colors ${rowAccent}`}>
                       {/* Left: Code, Patient, Medication */}
                       <div className="flex items-start gap-3.5 min-w-0">
-                        <div className="w-10 h-10 rounded-2xl bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                        <div className="w-10 h-10 rounded-md bg-slate-900 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
                           {res.reservationCode.split('-')[1]}
                         </div>
 
@@ -462,7 +462,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                             </span>
                             {liveStock && (
                               <span
-                                className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${
                                   isCollected
                                     ? 'text-slate-500 bg-slate-100'
                                     : liveStock.status === 'OUT_OF_STOCK'
@@ -489,7 +489,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                           </div>
 
                           {res.notes && (
-                            <p className="text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100 inline-block">
+                            <p className="text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100 inline-block">
                               <strong>Note:</strong> {res.notes}
                             </p>
                           )}
@@ -516,7 +516,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                                 reservationCode: res.reservationCode,
                               });
                             }}
-                            className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-100 flex items-center gap-1.5 transition-colors"
+                            className="px-3 py-1.5 rounded-md border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-100 flex items-center gap-1.5 transition-colors"
                           >
                             <FileText className="w-3.5 h-3.5 text-sky-600" />
                             <span>Prescription</span>
@@ -525,19 +525,19 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
 
                         {/* Status Pills for Completed states */}
                         {isCollected && (
-                          <span className="px-3 py-1 rounded-full text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200">
+                          <span className="px-3 py-1 rounded-md text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200">
                             ✓ Dispensed
                           </span>
                         )}
 
                         {isExpired && (
-                          <span className="px-3 py-1 rounded-full text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200">
+                          <span className="px-3 py-1 rounded-md text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200">
                             Hold Expired
                           </span>
                         )}
 
                         {isRejected && (
-                          <span className="px-3 py-1 rounded-full text-xs font-bold text-slate-500 bg-slate-100">
+                          <span className="px-3 py-1 rounded-md text-xs font-bold text-slate-500 bg-slate-100">
                             Declined
                           </span>
                         )}
@@ -548,7 +548,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                             <button
                               id={`approve-btn-${res.id}`}
                               onClick={() => handleApprove(res.id)}
-                              className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1"
+                              className="px-3.5 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1"
                             >
                               <Check className="w-3.5 h-3.5" />
                               <span>Approve Hold</span>
@@ -565,7 +565,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                                   reason: 'Out of stock in cold chain storage',
                                 });
                               }}
-                              className="px-3 py-1.5 rounded-xl border border-slate-200 text-rose-600 hover:bg-rose-50 text-xs font-bold transition-colors"
+                              className="px-3 py-1.5 rounded-md border border-slate-200 text-rose-600 hover:bg-rose-50 text-xs font-bold transition-colors"
                             >
                               Decline
                             </button>
@@ -576,7 +576,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                           <button
                             id={`dispense-btn-${res.id}`}
                             onClick={() => handleDispense(res.id)}
-                            className="px-4 py-1.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1.5"
+                            className="px-4 py-1.5 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1.5"
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                             <span>Mark Dispensed & Collected</span>
@@ -601,7 +601,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
               <button
                 id="add-stock-inventory-btn"
                 onClick={() => setIsAddModalOpen(true)}
-                className="px-4 py-2 rounded-full bg-slate-950 text-white hover:bg-slate-800 text-xs font-bold transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 rounded-md bg-slate-950 text-white hover:bg-slate-800 text-xs font-bold transition-colors flex items-center gap-1.5"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Drug</span>
@@ -641,7 +641,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                         <td className="py-3.5 px-3">
                           <div className="flex items-center gap-3">
                             {med.image && (
-                              <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                              <div className="w-10 h-10 rounded-md overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                                 <img
                                   src={med.image}
                                   alt={med.brandName}
@@ -670,7 +670,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                             id={`toggle-stock-${item.id}`}
                             onClick={() => handleToggleStock(item.id, item.status)}
                             title="Click to toggle status"
-                            className={`px-3 py-1 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 ${
+                            className={`px-3 py-1 rounded-md text-xs font-bold border transition-all flex items-center gap-1.5 ${
                               isInStock
                                 ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
                                 : isLowStock
@@ -704,7 +704,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                             id={`delete-inventory-${item.id}`}
                             onClick={() => handleDeleteInventoryItem(item)}
                             title="Remove from my pharmacy"
-                            className="p-1.5 rounded-lg text-rose-500 hover:text-rose-700 hover:bg-rose-50 transition-colors"
+                            className="p-1.5 rounded-md text-rose-500 hover:text-rose-700 hover:bg-rose-50 transition-colors"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -725,7 +725,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-3xl p-6 max-w-md w-full border border-slate-200 shadow-2xl space-y-4"
+            className="bg-white rounded-md p-6 max-w-md w-full border border-slate-200 shadow-2xl space-y-4"
           >
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-slate-900 text-base">Decline Hold {rejectModalState.reservationCode}</h3>
@@ -747,7 +747,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                 onChange={e => setRejectModalState(prev => ({ ...prev, reason: e.target.value }))}
                 rows={3}
                 required
-                className="w-full p-3 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-slate-900"
+                className="w-full p-3 rounded-md border border-slate-200 text-xs focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-slate-900"
                 placeholder="e.g. Batch allocated for in-hospital ICU transfer..."
               />
 
@@ -755,13 +755,13 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                 <button
                   type="button"
                   onClick={() => setRejectModalState(prev => ({ ...prev, isOpen: false }))}
-                  className="px-4 py-2 rounded-full text-xs font-semibold text-slate-600 hover:bg-slate-100"
+                  className="px-4 py-2 rounded-md text-xs font-semibold text-slate-600 hover:bg-slate-100"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-full bg-rose-600 text-white text-xs font-bold hover:bg-rose-700"
+                  className="px-5 py-2 rounded-md bg-rose-600 text-white text-xs font-bold hover:bg-rose-700"
                 >
                   Confirm Decline
                 </button>
@@ -777,7 +777,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-3xl p-6 max-w-lg w-full border border-slate-200 shadow-2xl space-y-4"
+            className="bg-white rounded-md p-6 max-w-lg w-full border border-slate-200 shadow-2xl space-y-4"
           >
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-slate-900 text-base font-display">Add Medication to Pharmacy</h3>
@@ -787,12 +787,12 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
             </div>
 
             {/* Existing catalogue drug vs. brand new drug */}
-            <div className="flex rounded-xl bg-slate-100 p-1 text-xs">
+            <div className="flex rounded-md bg-slate-100 p-1 text-xs">
               <button
                 type="button"
                 id="add-drug-mode-existing"
                 onClick={() => setAddDrugMode('existing')}
-                className={`flex-1 py-1.5 rounded-lg font-bold transition-all ${
+                className={`flex-1 py-1.5 rounded-md font-bold transition-all ${
                   addDrugMode === 'existing' ? 'bg-white text-slate-950 shadow-xs' : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -802,7 +802,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                 type="button"
                 id="add-drug-mode-new"
                 onClick={() => setAddDrugMode('new')}
-                className={`flex-1 py-1.5 rounded-lg font-bold transition-all ${
+                className={`flex-1 py-1.5 rounded-md font-bold transition-all ${
                   addDrugMode === 'new' ? 'bg-white text-slate-950 shadow-xs' : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -819,7 +819,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                   <select
                     value={selectedMedId}
                     onChange={e => setSelectedMedId(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 font-medium text-slate-900 bg-white"
+                    className="w-full p-2.5 rounded-md border border-slate-200 font-medium text-slate-900 bg-white"
                   >
                     {medicines.map(m => (
                       <option key={m.id} value={m.id}>
@@ -829,7 +829,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                   </select>
                 </div>
               ) : (
-                <div className="p-4 rounded-2xl bg-sky-50/70 border border-sky-200/80 space-y-3">
+                <div className="p-4 rounded-md bg-sky-50/70 border border-sky-200/80 space-y-3">
                   <div className="flex items-center gap-1.5 text-sky-800 font-bold">
                     <Tag className="w-4 h-4 text-sky-600" />
                     <span>New Drug Details</span>
@@ -844,7 +844,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                         value={newDrugBrand}
                         onChange={e => setNewDrugBrand(e.target.value)}
                         placeholder="e.g. Panadol Extra"
-                        className="w-full p-2 rounded-lg border border-slate-300 font-semibold text-slate-900 bg-white"
+                        className="w-full p-2 rounded-md border border-slate-300 font-semibold text-slate-900 bg-white"
                       />
                     </div>
                     <div>
@@ -855,7 +855,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                         value={newDrugGeneric}
                         onChange={e => setNewDrugGeneric(e.target.value)}
                         placeholder="e.g. Paracetamol + Caffeine"
-                        className="w-full p-2 rounded-lg border border-slate-300 text-slate-900 bg-white"
+                        className="w-full p-2 rounded-md border border-slate-300 text-slate-900 bg-white"
                       />
                     </div>
                   </div>
@@ -869,7 +869,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                       value={newDrugCategory}
                       onChange={e => setNewDrugCategory(e.target.value)}
                       placeholder="Pick an existing category or type a new one"
-                      className="w-full p-2 rounded-lg border border-slate-300 text-slate-900 bg-white"
+                      className="w-full p-2 rounded-md border border-slate-300 text-slate-900 bg-white"
                     />
                     <datalist id="pharmacist-category-options">
                       {knownCategories.map(c => <option key={c} value={c} />)}
@@ -885,7 +885,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                         value={newDrugDosage}
                         onChange={e => setNewDrugDosage(e.target.value)}
                         placeholder="e.g. 500mg Tablets (24s)"
-                        className="w-full p-2 rounded-lg border border-slate-300 text-slate-900 bg-white"
+                        className="w-full p-2 rounded-md border border-slate-300 text-slate-900 bg-white"
                       />
                     </div>
                     <div>
@@ -895,7 +895,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                         value={newDrugStrength}
                         onChange={e => setNewDrugStrength(e.target.value)}
                         placeholder="e.g. 500mg/65mg"
-                        className="w-full p-2 rounded-lg border border-slate-300 text-slate-900 bg-white"
+                        className="w-full p-2 rounded-md border border-slate-300 text-slate-900 bg-white"
                       />
                     </div>
                   </div>
@@ -907,7 +907,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                       value={newDrugFda}
                       onChange={e => setNewDrugFda(e.target.value)}
                       placeholder="Auto-generated if left blank"
-                      className="w-full p-2 rounded-lg border border-slate-300 font-mono text-slate-900 bg-white"
+                      className="w-full p-2 rounded-md border border-slate-300 font-mono text-slate-900 bg-white"
                     />
                   </div>
 
@@ -934,7 +934,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                     min={1}
                     value={newQty}
                     onChange={e => setNewQty(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 font-mono font-bold"
+                    className="w-full p-2.5 rounded-md border border-slate-200 font-mono font-bold"
                   />
                 </div>
 
@@ -948,7 +948,7 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                     min={1}
                     value={newPrice}
                     onChange={e => setNewPrice(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 font-mono font-bold"
+                    className="w-full p-2.5 rounded-md border border-slate-200 font-mono font-bold"
                   />
                 </div>
               </div>
@@ -957,13 +957,13 @@ export const PharmacistDashboard: React.FC<PharmacistDashboardProps> = ({
                 <button
                   type="button"
                   onClick={resetAddDrugModal}
-                  className="px-4 py-2 rounded-full font-semibold text-slate-600 hover:bg-slate-100"
+                  className="px-4 py-2 rounded-md font-semibold text-slate-600 hover:bg-slate-100"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-full bg-slate-950 text-white font-bold hover:bg-slate-800"
+                  className="px-6 py-2 rounded-md bg-slate-950 text-white font-bold hover:bg-slate-800"
                 >
                   {addDrugMode === 'new' ? 'Register & Stock Drug' : 'Save to Inventory'}
                 </button>

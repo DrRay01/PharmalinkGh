@@ -37,38 +37,38 @@ export const PharmacyCard: React.FC<PharmacyCardProps> = ({
     : 'border-l-4 border-l-slate-300';
 
   return (
-    <div className={`bg-white rounded-3xl border border-slate-200/90 ${stockAccent} p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between group`}>
+    <div className={`bg-white rounded-md border border-slate-200/90 ${stockAccent} p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between group`}>
       <div>
         {/* Top Badges & Status */}
         <div className="flex items-center justify-between gap-2 mb-3.5">
           <div className="flex items-center gap-1.5 flex-wrap">
             {isInStock && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 In Stock ({inventory.quantity} units)
               </span>
             )}
             {isLowStock && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                 Low Stock ({inventory.quantity} left)
               </span>
             )}
             {isOutOfStock && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-500 border border-slate-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-500 border border-slate-200">
                 Out of Stock
               </span>
             )}
 
             {pharmacy.isVerified && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
                 <ShieldCheck className="w-3 h-3" />
                 PCG Verified
               </span>
             )}
           </div>
 
-          <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
+          <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
             {distance} km
           </span>
         </div>
@@ -100,10 +100,10 @@ export const PharmacyCard: React.FC<PharmacyCardProps> = ({
         </div>
 
         {/* Medicine Highlight with Packaging Photo */}
-        <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100 mb-4 flex items-center justify-between gap-3">
+        <div className="p-3 rounded-md bg-slate-50 border border-slate-100 mb-4 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
             {medicine.image && (
-              <div className="w-12 h-12 rounded-xl overflow-hidden bg-white border border-slate-200 shrink-0">
+              <div className="w-12 h-12 rounded-md overflow-hidden bg-white border border-slate-200 shrink-0">
                 <img
                   src={medicine.image}
                   alt={medicine.brandName}
@@ -132,7 +132,7 @@ export const PharmacyCard: React.FC<PharmacyCardProps> = ({
             id={`call-pharma-${pharmacy.id}`}
             href={`tel:${pharmacy.phone}`}
             title={`Call ${pharmacy.name}`}
-            className="px-3 py-2 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-colors flex items-center gap-1.5"
+            className="px-3 py-2 rounded-md border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-colors flex items-center gap-1.5"
           >
             <Phone className="w-3.5 h-3.5 text-slate-500" />
             <span>Call</span>
@@ -144,7 +144,7 @@ export const PharmacyCard: React.FC<PharmacyCardProps> = ({
             target="_blank"
             rel="noreferrer"
             title={`WhatsApp ${pharmacy.name}`}
-            className="p-2 rounded-full border border-emerald-200 text-emerald-600 hover:bg-emerald-50 transition-colors"
+            className="p-2 rounded-md border border-emerald-200 text-emerald-600 hover:bg-emerald-50 transition-colors"
           >
             <WhatsAppIcon className="w-3.5 h-3.5" />
           </a>
@@ -155,7 +155,7 @@ export const PharmacyCard: React.FC<PharmacyCardProps> = ({
             target="_blank"
             rel="noreferrer"
             title="Open Google Maps Directions"
-            className="px-3 py-2 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-colors flex items-center gap-1.5"
+            className="px-3 py-2 rounded-md border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-colors flex items-center gap-1.5"
           >
             <Navigation className="w-3.5 h-3.5 text-slate-500" />
             <span className="hidden sm:inline">Directions</span>
@@ -166,7 +166,7 @@ export const PharmacyCard: React.FC<PharmacyCardProps> = ({
           id={`reserve-btn-${pharmacy.id}-${medicine.id}`}
           onClick={() => onReserve(medicine, pharmacy, inventory)}
           disabled={isOutOfStock}
-          className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-1.5 ${
+          className={`px-4 sm:px-5 py-2.5 rounded-md text-xs font-bold tracking-wide transition-all flex items-center gap-1.5 ${
             isOutOfStock
               ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
               : 'bg-slate-950 hover:bg-slate-800 text-white shadow-xs group-hover:shadow-md'

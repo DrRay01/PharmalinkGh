@@ -165,10 +165,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Top Banner */}
-      <div className="rounded-3xl bg-slate-900 text-white p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="rounded-md bg-slate-900 text-white p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold tracking-wide">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-[11px] font-bold tracking-wide">
               <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
               Pharmacy Council of Ghana Oversight
             </span>
@@ -186,7 +186,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           <button
             id="admin-add-master-drug-btn"
             onClick={() => setIsAddMedModalOpen(true)}
-            className="px-5 py-2.5 rounded-2xl bg-white text-slate-900 hover:bg-slate-100 text-xs font-bold transition-all shadow-md flex items-center gap-2"
+            className="px-5 py-2.5 rounded-md bg-white text-slate-900 hover:bg-slate-100 text-xs font-bold transition-all shadow-md flex items-center gap-2"
           >
             <Plus className="w-4 h-4 text-emerald-600" />
             <span>Register FDA Drug</span>
@@ -196,61 +196,61 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Verified Pharmacies</span>
           <div className="flex items-baseline justify-between mt-3">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{totalVerifiedPharmacies}</span>
-            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
               Active PCG
             </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Pending Accreditation</span>
           <div className="flex items-baseline justify-between mt-3">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{pendingAccreditations}</span>
-            <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
               Review Queue
             </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Catalogue Medications</span>
           <div className="flex items-baseline justify-between mt-3">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{medicines.length}</span>
-            <span className="text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md">
               FDA Approved
             </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Fulfillment Efficiency</span>
           <div className="flex items-baseline justify-between mt-3">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{fulfilledRate}%</span>
-            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
               Total: {totalReservations}
             </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Registered Users</span>
           <div className="flex items-baseline justify-between mt-3">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{totalUsers}</span>
-            <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">
               Patients & Pharmacists
             </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white rounded-md p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Active Holdings</span>
           <div className="flex items-baseline justify-between mt-3">
             <span className="text-3xl font-extrabold text-slate-900 font-display">{activeHoldings}</span>
-            <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
               2-hr Locks Live
             </span>
           </div>
@@ -258,13 +258,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       </div>
 
       {/* Main Tabs Container */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div className="bg-white rounded-md border border-slate-200/80 shadow-xs overflow-hidden">
         <div className="px-6 pt-5 pb-3 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <button
               id="admin-tab-accreditation"
               onClick={() => setActiveTab('accreditation')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'accreditation'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -276,7 +276,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <button
               id="admin-tab-users"
               onClick={() => setActiveTab('users')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'users'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -288,7 +288,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <button
               id="admin-tab-holdings"
               onClick={() => setActiveTab('holdings')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'holdings'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -300,7 +300,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <button
               id="admin-tab-catalogue"
               onClick={() => setActiveTab('catalogue')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'catalogue'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -312,7 +312,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <button
               id="admin-tab-audits"
               onClick={() => setActiveTab('audits')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-md text-xs font-bold transition-all ${
                 activeTab === 'audits'
                   ? 'bg-slate-950 text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -335,7 +335,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   placeholder="Search vendor name, license number, superintendent, locality..."
                   value={vendorSearchQuery}
                   onChange={e => setVendorSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-xs focus:outline-hidden focus:border-slate-900 focus:bg-white transition-all"
+                  className="w-full pl-10 pr-4 py-2 rounded-md bg-slate-50 border border-slate-200 text-xs focus:outline-hidden focus:border-slate-900 focus:bg-white transition-all"
                 />
               </div>
 
@@ -345,7 +345,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   <button
                     key={st}
                     onClick={() => setVendorFilterStatus(st)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${
                       vendorFilterStatus === st
                         ? 'bg-slate-950 text-white shadow-xs'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -379,26 +379,26 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   return (
                     <div
                       key={pharma.id}
-                      className={`rounded-2xl p-4 pl-5 transition-all ${cardAccent}`}
+                      className={`rounded-md p-4 pl-5 transition-all ${cardAccent}`}
                     >
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div className="space-y-1.5 flex-1">
                           <div className="flex items-center gap-2 flex-wrap">
                             <h4 className="font-bold text-slate-900 text-base font-display">{pharma.name}</h4>
                             {pharma.status === 'APPROVED' && (
-                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
                                 <ShieldCheck className="w-3.5 h-3.5" />
                                 PCG Verified License
                               </span>
                             )}
                             {pharma.status === 'PENDING' && (
-                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
                                 <Clock className="w-3.5 h-3.5" />
                                 Pending Review
                               </span>
                             )}
                             {pharma.status === 'SUSPENDED' && (
-                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
+                              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-md border border-rose-200">
                                 <AlertTriangle className="w-3.5 h-3.5" />
                                 Suspended — Sales Revoked
                               </span>
@@ -437,7 +437,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                           <button
                             id={`inspect-stock-${pharma.id}`}
                             onClick={() => setExpandedVendorId(isExpanded ? null : pharma.id)}
-                            className="px-3.5 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-100 text-xs font-bold text-slate-700 transition-colors flex items-center gap-1.5"
+                            className="px-3.5 py-2 rounded-md border border-slate-200 bg-white hover:bg-slate-100 text-xs font-bold text-slate-700 transition-colors flex items-center gap-1.5"
                           >
                             <Package className="w-3.5 h-3.5 text-slate-500" />
                             <span>Inspect Stocks ({pharmaInventory.length})</span>
@@ -448,7 +448,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                             <button
                               id={`suspend-pharma-${pharma.id}`}
                               onClick={() => handleSetPharmacyStatus(pharma.id, 'SUSPENDED')}
-                              className="px-4 py-2 rounded-full text-xs font-bold transition-all shadow-xs border border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100"
+                              className="px-4 py-2 rounded-md text-xs font-bold transition-all shadow-xs border border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100"
                             >
                               Suspend / Revoke Sales
                             </button>
@@ -456,7 +456,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                             <button
                               id={`approve-pharma-${pharma.id}`}
                               onClick={() => handleSetPharmacyStatus(pharma.id, 'APPROVED')}
-                              className="px-4 py-2 rounded-full text-xs font-bold transition-all shadow-xs bg-emerald-600 hover:bg-emerald-700 text-white"
+                              className="px-4 py-2 rounded-md text-xs font-bold transition-all shadow-xs bg-emerald-600 hover:bg-emerald-700 text-white"
                             >
                               {pharma.status === 'PENDING' ? 'Approve Pharmacy' : 'Reinstate Pharmacy'}
                             </button>
@@ -466,7 +466,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
                       {/* Expanded Stock & Pricing Inspection */}
                       {isExpanded && (
-                        <div className="mt-4 pt-4 border-t border-slate-200/80 bg-white rounded-xl p-3.5">
+                        <div className="mt-4 pt-4 border-t border-slate-200/80 bg-white rounded-md p-3.5">
                           <div className="flex items-center justify-between mb-3">
                             <h5 className="font-bold text-xs text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                               <Package className="w-3.5 h-3.5 text-sky-600" />
@@ -503,15 +503,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                                         <td className="py-2.5 px-2 font-mono text-slate-600">{item.batchNumber}</td>
                                         <td className="py-2.5 px-2">
                                           {item.status === 'IN_STOCK' ? (
-                                            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-bold text-[10px]">
+                                            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold text-[10px]">
                                               {item.quantity} units
                                             </span>
                                           ) : item.status === 'LOW_STOCK' ? (
-                                            <span className="text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full font-bold text-[10px]">
+                                            <span className="text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md font-bold text-[10px]">
                                               Low ({item.quantity})
                                             </span>
                                           ) : (
-                                            <span className="text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full text-[10px]">
+                                            <span className="text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md text-[10px]">
                                               Out of stock
                                             </span>
                                           )}
@@ -549,7 +549,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 placeholder="Search user name, email, or pharmacy..."
                 value={userSearchQuery}
                 onChange={e => setUserSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-xs focus:outline-hidden focus:border-slate-900 focus:bg-white transition-all"
+                className="w-full pl-10 pr-4 py-2 rounded-md bg-slate-50 border border-slate-200 text-xs focus:outline-hidden focus:border-slate-900 focus:bg-white transition-all"
               />
             </div>
 
@@ -609,7 +609,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                           <button
                             id={`delete-user-${u.uid}`}
                             onClick={() => handleDeleteUser(u)}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100 text-xs font-bold transition-colors"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100 text-xs font-bold transition-colors"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                             <span>Delete</span>
@@ -633,7 +633,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 <button
                   key={st}
                   onClick={() => setHoldingsStatusFilter(st)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${
                     holdingsStatusFilter === st
                       ? 'bg-slate-950 text-white shadow-xs'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -682,7 +682,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                           <span className="font-mono font-bold text-slate-900">{formatGHS(res.totalPriceGHS)}</span>
                         </td>
                         <td className="py-3.5 px-3">
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${
                             res.status === 'COLLECTED' ? 'text-emerald-700 bg-emerald-50'
                             : res.status === 'CONFIRMED' ? 'text-sky-700 bg-sky-50'
                             : res.status === 'PENDING' ? 'text-amber-700 bg-amber-50'
@@ -722,7 +722,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       <td className="py-3.5 px-3">
                         <div className="flex items-center gap-3">
                           {med.image && (
-                            <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                            <div className="w-10 h-10 rounded-md overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                               <img
                                 src={med.image}
                                 alt={med.brandName}
@@ -750,7 +750,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       </td>
                       <td className="py-3.5 px-3">
                         {med.isEmergencyCritical ? (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-md">
                             Critical Triage
                           </span>
                         ) : (
@@ -801,7 +801,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-3xl p-6 max-w-lg w-full border border-slate-200 shadow-2xl space-y-4"
+            className="bg-white rounded-md p-6 max-w-lg w-full border border-slate-200 shadow-2xl space-y-4"
           >
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-slate-900 text-base font-display">Register Ghana FDA Master Medicine</h3>
@@ -820,7 +820,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     onChange={e => setNewBrand(e.target.value)}
                     placeholder="e.g. Rocephin 1g"
                     required
-                    className="w-full p-2.5 rounded-xl border border-slate-200 font-semibold"
+                    className="w-full p-2.5 rounded-md border border-slate-200 font-semibold"
                   />
                 </div>
                 <div>
@@ -831,7 +831,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     onChange={e => setNewGeneric(e.target.value)}
                     placeholder="e.g. Ceftriaxone Sodium"
                     required
-                    className="w-full p-2.5 rounded-xl border border-slate-200 font-semibold"
+                    className="w-full p-2.5 rounded-md border border-slate-200 font-semibold"
                   />
                 </div>
               </div>
@@ -842,7 +842,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   <select
                     value={newCategory}
                     onChange={e => setNewCategory(e.target.value as TherapeuticCategory)}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 bg-white"
+                    className="w-full p-2.5 rounded-md border border-slate-200 bg-white"
                   >
                     <option value="Emergency & ICU">Emergency & ICU</option>
                     <option value="Antibiotics">Antibiotics</option>
@@ -860,7 +860,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     onChange={e => setNewFdaNo(e.target.value)}
                     placeholder="FDA/SD.24-001"
                     required
-                    className="w-full p-2.5 rounded-xl border border-slate-200 font-mono"
+                    className="w-full p-2.5 rounded-md border border-slate-200 font-mono"
                   />
                 </div>
               </div>
@@ -874,7 +874,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     onChange={e => setNewDosage(e.target.value)}
                     placeholder="e.g. 1g IV Vial"
                     required
-                    className="w-full p-2.5 rounded-xl border border-slate-200"
+                    className="w-full p-2.5 rounded-md border border-slate-200"
                   />
                 </div>
                 <div>
@@ -885,7 +885,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     onChange={e => setNewStrength(e.target.value)}
                     placeholder="e.g. 1000mg/vial"
                     required
-                    className="w-full p-2.5 rounded-xl border border-slate-200"
+                    className="w-full p-2.5 rounded-md border border-slate-200"
                   />
                 </div>
               </div>
@@ -916,13 +916,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddMedModalOpen(false)}
-                  className="px-4 py-2 rounded-full font-semibold text-slate-600 hover:bg-slate-100"
+                  className="px-4 py-2 rounded-md font-semibold text-slate-600 hover:bg-slate-100"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 rounded-full bg-slate-950 text-white font-bold hover:bg-slate-800"
+                  className="px-6 py-2 rounded-md bg-slate-950 text-white font-bold hover:bg-slate-800"
                 >
                   Save to FDA Register
                 </button>

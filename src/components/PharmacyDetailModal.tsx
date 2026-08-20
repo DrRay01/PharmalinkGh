@@ -31,7 +31,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden border border-slate-200"
+          className="bg-white rounded-md shadow-2xl max-w-lg w-full overflow-hidden border border-slate-200"
         >
           {/* Pharmacy Image Banner */}
           <div className="relative h-44 bg-slate-800 overflow-hidden">
@@ -43,14 +43,14 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <div className="w-full h-full bg-linear-to-tr from-slate-900 to-slate-800" />
+              <div className="w-full h-full bg-slate-900" />
             )}
-            <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 to-transparent" />
 
             <button
               id="pharmacy-detail-close"
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-black/40 text-white hover:bg-black/60 backdrop-blur-md transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-md bg-black/40 text-white hover:bg-black/60 backdrop-blur-md transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -58,20 +58,20 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
             <div className="absolute bottom-4 left-5 right-5 text-white">
               <div className="flex items-center gap-2 mb-1">
                 {pharmacy.isVerified ? (
-                  <span className="inline-flex items-center gap-1 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                  <span className="inline-flex items-center gap-1 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md">
                     <ShieldCheck className="w-3 h-3" />
                     PCG Verified
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                  <span className="inline-flex items-center gap-1 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md">
                     Pending Review
                   </span>
                 )}
-                <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">
+                <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-md flex items-center gap-1">
                   <Star className="w-3 h-3 text-amber-300 fill-amber-300" />
                   {pharmacy.rating}
                 </span>
-                <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+                <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-md">
                   {distance} km away
                 </span>
               </div>
@@ -82,7 +82,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
           {/* Details Content */}
           <div className="p-6 space-y-5">
             {/* Accreditation Badge Box */}
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+            <div className="p-3.5 rounded-md bg-slate-50 border border-slate-100 flex items-center justify-between">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Pharmacy Council License</span>
                 <p className="font-mono text-xs font-bold text-slate-800 mt-0.5">{pharmacy.licenseNumber}</p>
@@ -115,7 +115,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
                     target="_blank"
                     rel="noreferrer"
                     title={`WhatsApp ${pharmacy.name}`}
-                    className="p-1.5 rounded-full border border-emerald-200 text-emerald-600 hover:bg-emerald-50 transition-colors"
+                    className="p-1.5 rounded-md border border-emerald-200 text-emerald-600 hover:bg-emerald-50 transition-colors"
                   >
                     <WhatsAppIcon className="w-3 h-3" />
                   </a>
@@ -133,7 +133,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
                   <span className="text-slate-500">Operating Hours: </span>
                   <span className="font-medium text-slate-800">{pharmacy.openingHours}</span>
                   {pharmacy.is24Hours && (
-                    <span className="ml-2 inline-flex text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                    <span className="ml-2 inline-flex text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
                       24/7 OPEN
                     </span>
                   )}
@@ -148,7 +148,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>Open Google Maps</span>
@@ -160,7 +160,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
                   href={whatsappLink(pharmacy.phone, `Hi ${pharmacy.name}, I'm enquiring about medication availability via PharmaLink GH.`)}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-emerald-200 text-emerald-700 hover:bg-emerald-50 text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md border border-emerald-200 text-emerald-700 hover:bg-emerald-50 text-xs font-bold transition-colors"
                 >
                   <WhatsAppIcon className="w-3.5 h-3.5" />
                   <span>WhatsApp</span>
@@ -169,7 +169,7 @@ export const PharmacyDetailModal: React.FC<PharmacyDetailModalProps> = ({
                 <a
                   id="pharmacy-call-direct-btn"
                   href={`tel:${pharmacy.phone}`}
-                  className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-5 py-2 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call Pharmacy</span>

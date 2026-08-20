@@ -47,7 +47,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
   if (compact) {
     return (
-      <span className={`inline-flex items-center gap-1 text-[11px] font-medium font-mono px-2 py-0.5 rounded-full border ${badgeClass}`}>
+      <span className={`inline-flex items-center gap-1 text-[11px] font-medium font-mono px-2 py-0.5 rounded-md border ${badgeClass}`}>
         <Clock className="w-3 h-3" />
         {timeState.formatted}
       </span>
@@ -55,7 +55,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({
   }
 
   return (
-    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border text-xs font-medium font-mono ${badgeClass}`}>
+    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-md border text-xs font-medium font-mono ${badgeClass}`}>
       <Clock className="w-3.5 h-3.5 shrink-0" />
       <span>Expires in: <strong>{timeState.formatted}</strong></span>
     </div>

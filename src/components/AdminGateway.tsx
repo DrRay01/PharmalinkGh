@@ -44,10 +44,10 @@ export const AdminGateway: React.FC<AdminGatewayProps> = ({ onBack }) => {
 
       <div className="relative z-10 w-full max-w-sm">
         <div className="flex flex-col items-center text-center mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-white/95 flex items-center justify-center shadow-lg mb-4">
+          <div className="w-14 h-14 rounded-md bg-white/95 flex items-center justify-center shadow-lg mb-4">
             <img src={pharmalinkMonogram} alt="PharmaLink GH" className="w-9 h-9 object-contain" />
           </div>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-bold tracking-wide mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-bold tracking-wide mb-3">
             <ShieldCheck className="w-3.5 h-3.5" />
             Pharmacy Council of Ghana
           </span>
@@ -55,9 +55,9 @@ export const AdminGateway: React.FC<AdminGatewayProps> = ({ onBack }) => {
           <p className="text-xs text-slate-400 mt-1">Restricted to authorized PCG Inspectors</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 shadow-2xl border border-slate-200 space-y-4 text-xs">
+        <form onSubmit={handleSubmit} className="bg-white rounded-md p-6 shadow-2xl border border-slate-200 space-y-4 text-xs">
           {errorMessage && (
-            <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 flex items-start gap-2">
+            <div className="p-3 rounded-md bg-rose-50 border border-rose-200 text-rose-800 flex items-start gap-2">
               <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
               <span>{errorMessage}</span>
             </div>
@@ -69,7 +69,7 @@ export const AdminGateway: React.FC<AdminGatewayProps> = ({ onBack }) => {
               type="email"
               value={PCG_ADMIN_EMAIL}
               readOnly
-              className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-500 cursor-not-allowed"
+              className="w-full p-2.5 rounded-md border border-slate-200 bg-slate-50 font-medium text-slate-500 cursor-not-allowed"
             />
           </div>
 
@@ -84,12 +84,12 @@ export const AdminGateway: React.FC<AdminGatewayProps> = ({ onBack }) => {
                 autoFocus
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 font-medium text-slate-900"
+                className="w-full pl-10 pr-3.5 py-2.5 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 font-medium text-slate-900"
               />
             </div>
           </div>
 
-          <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-[11px]">
+          <div className="p-2.5 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-[11px]">
             Default password: <strong className="font-mono">{PCG_ADMIN_PASSWORD}</strong>
           </div>
 
@@ -97,7 +97,7 @@ export const AdminGateway: React.FC<AdminGatewayProps> = ({ onBack }) => {
             id="admin-gateway-submit-btn"
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 rounded-2xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs tracking-wide shadow-md transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-md bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs tracking-wide shadow-md transition-all flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <Loader2 className="w-4 h-4 animate-spin" />

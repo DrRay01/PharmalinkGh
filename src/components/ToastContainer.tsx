@@ -35,7 +35,7 @@ export const ToastContainer: React.FC = () => {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
-              className="pointer-events-auto flex items-start gap-3 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xl shadow-slate-900/10 text-slate-800"
+              className="pointer-events-auto flex items-start gap-3 p-4 rounded-md bg-white border border-slate-200/80 shadow-xl shadow-slate-900/10 text-slate-800"
             >
               <div className="shrink-0 mt-0.5">
                 {isSuccess && <CheckCircle2 className="w-5 h-5 text-emerald-600" />}
@@ -52,7 +52,7 @@ export const ToastContainer: React.FC = () => {
               <button
                 id={`toast-close-${toast.id}`}
                 onClick={() => removeToast(toast.id)}
-                className="shrink-0 text-slate-400 hover:text-slate-600 p-1 rounded-lg transition-colors"
+                className="shrink-0 text-slate-400 hover:text-slate-600 p-1 rounded-md transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
               </button>

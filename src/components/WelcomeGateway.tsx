@@ -101,7 +101,6 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-slate-950/70" />
-        <div className="absolute inset-0 bg-linear-to-b from-slate-950/60 via-slate-950/45 to-slate-950/70" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 lg:py-14">
@@ -115,7 +114,7 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
             className="lg:col-span-2 flex flex-col justify-center"
           >
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-11 h-11 flex items-center justify-center shrink-0 bg-white/95 rounded-xl p-1.5 shadow-md">
+              <div className="w-11 h-11 flex items-center justify-center shrink-0 bg-white/95 rounded-md p-1.5 shadow-md">
                 <img src={pharmalinkMonogram} alt="PharmaLink GH logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex items-center gap-1.5">
@@ -127,7 +126,7 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
             <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-white font-display leading-[1.08] tracking-tight mb-4 [text-shadow:0_2px_20px_rgba(0,0,0,0.35)]">
               Emergency medicine,
               <br />
-              <span className="bg-linear-to-r from-sky-300 via-sky-200 to-emerald-300 bg-clip-text text-transparent">
+              <span className="text-sky-300">
                 located in minutes.
               </span>
             </h1>
@@ -145,7 +144,7 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: 'easeOut' }}
-                  className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3.5 py-1.5 w-fit"
+                  className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-md px-3.5 py-1.5 w-fit"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                   <span className="text-[11px] font-semibold text-slate-100 truncate max-w-[280px] sm:max-w-none">
@@ -157,15 +156,15 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
 
             {/* Stat pills */}
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-100 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-100 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-md">
                 <Pill className="w-3.5 h-3.5 text-sky-300" />
                 FDA-registered medicines
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-100 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-100 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-md">
                 <Building2 className="w-3.5 h-3.5 text-emerald-300" />
                 PCG-verified pharmacies
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-100 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-100 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-md">
                 <Clock3 className="w-3.5 h-3.5 text-amber-300" />
                 2-hour hold guarantee
               </span>
@@ -195,9 +194,9 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.25 + i * 0.08 }}
                     whileHover={{ y: -3 }}
-                    className={`bg-white rounded-3xl border border-white/60 p-4 shadow-xl transition-all flex flex-col ${accent.ring}`}
+                    className={`bg-white rounded-md border border-white/60 p-4 shadow-xl transition-all flex flex-col ${accent.ring}`}
                   >
-                    <div className={`w-9 h-9 rounded-2xl border flex items-center justify-center mb-2.5 ${accent.iconBg} ${accent.iconText}`}>
+                    <div className={`w-9 h-9 rounded-md border flex items-center justify-center mb-2.5 ${accent.iconBg} ${accent.iconText}`}>
                       {card.icon}
                     </div>
                     <h3 className="font-bold text-slate-900 text-sm font-display">{card.title}</h3>
@@ -207,7 +206,7 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
                         <button
                           id={`welcome-signin-${card.role}`}
                           onClick={onGoToAdmin}
-                          className={`w-full px-3 py-2 rounded-full text-white text-xs font-bold transition-colors ${accent.btn}`}
+                          className={`w-full px-3 py-2 rounded-md text-white text-xs font-bold transition-colors ${accent.btn}`}
                         >
                           Go to Admin Portal
                         </button>
@@ -218,14 +217,14 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
                         <button
                           id={`welcome-signin-${card.role}`}
                           onClick={() => onOpenAuth('login', card.role)}
-                          className="flex-1 px-3 py-2 rounded-full border border-slate-200 hover:bg-slate-50 text-xs font-bold text-slate-700 transition-colors"
+                          className="flex-1 px-3 py-2 rounded-md border border-slate-200 hover:bg-slate-50 text-xs font-bold text-slate-700 transition-colors"
                         >
                           Sign In
                         </button>
                         <button
                           id={`welcome-register-${card.role}`}
                           onClick={() => onOpenAuth('signup', card.role)}
-                          className={`flex-1 px-3 py-2 rounded-full text-white text-xs font-bold transition-colors ${accent.btn}`}
+                          className={`flex-1 px-3 py-2 rounded-md text-white text-xs font-bold transition-colors ${accent.btn}`}
                         >
                           Register
                         </button>
@@ -241,15 +240,15 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
         {/* Divider */}
         <div className="relative flex items-center justify-center mb-6 max-w-4xl mx-auto">
           <div className="border-t border-white/20 w-full" />
-          <span className="px-3 text-[10px] font-bold text-slate-300 uppercase tracking-wider absolute bg-slate-950/70 rounded-full">
+          <span className="px-3 text-[10px] font-bold text-slate-300 uppercase tracking-wider absolute bg-slate-950/70 rounded-md">
             or
           </span>
         </div>
 
         {/* Guest Skip Path */}
-        <div className="bg-white/95 backdrop-blur-md rounded-3xl border border-white/60 p-6 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+        <div className="bg-white/95 backdrop-blur-md rounded-md border border-white/60 p-6 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-md bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
               <Search className="w-5 h-5 text-slate-600" />
             </div>
             <div>
@@ -262,7 +261,7 @@ export const WelcomeGateway: React.FC<WelcomeGatewayProps> = ({ onOpenAuth, onCo
           <button
             id="welcome-continue-guest-btn"
             onClick={onContinueAsGuest}
-            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold shadow-md transition-colors"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold shadow-md transition-colors"
           >
             <span>Continue as Guest</span>
             <ArrowRight className="w-3.5 h-3.5" />

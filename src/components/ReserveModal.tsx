@@ -100,12 +100,12 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="bg-white rounded-3xl shadow-2xl max-w-xl w-full overflow-hidden border border-slate-200 my-8"
+          className="bg-white rounded-md shadow-2xl max-w-xl w-full overflow-hidden border border-slate-200 my-8"
         >
           {/* Header */}
           <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-md bg-emerald-500/10 text-emerald-700 flex items-center justify-center">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
@@ -117,7 +117,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
             <button
               id="reserve-modal-close"
               onClick={onClose}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+              className="p-2 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -125,14 +125,14 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
 
           <form onSubmit={handleSubmit} className="p-6 space-y-5">
             {error && (
-              <div className="p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+              <div className="p-3 rounded-md bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{error}</span>
               </div>
             )}
 
             {/* Drug & Pharmacy Summary Banner */}
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-3">
+            <div className="p-4 rounded-md bg-slate-50 border border-slate-100 space-y-3">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md">
@@ -167,7 +167,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                     type="button"
                     onClick={() => setQuantity(q => Math.max(1, q - 1))}
                     disabled={quantity <= 1}
-                    className="w-10 h-10 rounded-xl border border-slate-200 bg-white font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition-colors flex items-center justify-center"
+                    className="w-10 h-10 rounded-md border border-slate-200 bg-white font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition-colors flex items-center justify-center"
                   >
                     -
                   </button>
@@ -178,7 +178,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                     type="button"
                     onClick={() => setQuantity(q => Math.min(Math.max(1, maxAvailable), q + 1))}
                     disabled={quantity >= maxAvailable}
-                    className="w-10 h-10 rounded-xl border border-slate-200 bg-white font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition-colors flex items-center justify-center"
+                    className="w-10 h-10 rounded-md border border-slate-200 bg-white font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-40 transition-colors flex items-center justify-center"
                   >
                     +
                   </button>
@@ -186,7 +186,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                 <span className="text-[11px] text-slate-400 mt-1 block">Max {maxAvailable} units available</span>
               </div>
 
-              <div className="bg-slate-900 text-white p-3.5 rounded-2xl flex flex-col justify-center">
+              <div className="bg-slate-900 text-white p-3.5 rounded-md flex flex-col justify-center">
                 <span className="text-[11px] text-slate-400 font-medium">Estimated Total</span>
                 <span className="text-xl font-bold font-mono text-white mt-0.5">{formatGHS(totalPrice)}</span>
                 <span className="text-[10px] text-emerald-400 mt-0.5">Pay in store upon collection</span>
@@ -205,7 +205,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                 onChange={e => setPatientPhone(e.target.value)}
                 placeholder="+233 24 000 0000"
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 text-sm font-medium text-slate-900"
+                className="w-full px-4 py-2.5 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 text-sm font-medium text-slate-900"
               />
               <span className="text-[11px] text-slate-400 mt-1 block">Used by the dispenser to verify your pickup code.</span>
             </div>
@@ -220,7 +220,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
               </div>
 
               {prescriptionImage ? (
-                <div className="p-3 rounded-2xl border border-emerald-200 bg-emerald-50/50 flex items-center justify-between">
+                <div className="p-3 rounded-md border border-emerald-200 bg-emerald-50/50 flex items-center justify-between">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <FileText className="w-5 h-5 text-emerald-600 shrink-0" />
                     <span className="text-xs font-medium text-slate-800 truncate">{prescriptionFileName || 'Prescription Attached'}</span>
@@ -237,7 +237,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                   </button>
                 </div>
               ) : (
-                <label className="cursor-pointer border-2 border-dashed border-slate-200 hover:border-sky-400 hover:bg-sky-50/20 transition-all rounded-2xl p-4 flex flex-col items-center justify-center gap-1.5 text-center">
+                <label className="cursor-pointer border-2 border-dashed border-slate-200 hover:border-sky-400 hover:bg-sky-50/20 transition-all rounded-md p-4 flex flex-col items-center justify-center gap-1.5 text-center">
                   <Upload className="w-5 h-5 text-slate-400" />
                   <span className="text-xs font-medium text-slate-700">Upload prescription photo or doctor's slip</span>
                   <span className="text-[10px] text-slate-400">Helps the pharmacist prepare your dosage ahead of time</span>
@@ -263,12 +263,12 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                 value={notes}
                 onChange={e => setNotes(e.target.value)}
                 placeholder="e.g. On my way from Ridge Hospital, arriving in 30 mins."
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 text-sm text-slate-900 placeholder:text-slate-400"
+                className="w-full px-4 py-2.5 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 text-sm text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
             {/* Policy notice */}
-            <div className="p-3 bg-amber-500/10 border border-amber-200/80 rounded-2xl text-[11px] text-amber-900 leading-relaxed flex items-start gap-2">
+            <div className="p-3 bg-amber-500/10 border border-amber-200/80 rounded-md text-[11px] text-amber-900 leading-relaxed flex items-start gap-2">
               <Clock className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <strong>2-Hour Auto-Expiry Rule:</strong> This medication will be locked for exactly 2 hours. If uncollected, it is automatically released back to emergency inventory.
@@ -280,7 +280,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-5 py-2.5 rounded-full text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors"
+                className="px-5 py-2.5 rounded-md text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors"
               >
                 Cancel
               </button>
@@ -288,7 +288,7 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                 id="submit-reserve-btn"
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold tracking-wide transition-all shadow-md hover:shadow-lg disabled:opacity-50 flex items-center gap-2"
+                className="px-6 py-2.5 rounded-md bg-slate-950 hover:bg-slate-800 text-white text-xs font-bold tracking-wide transition-all shadow-md hover:shadow-lg disabled:opacity-50 flex items-center gap-2"
               >
                 {isSubmitting ? (
                   <span>Reserving...</span>
